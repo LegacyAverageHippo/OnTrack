@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color = primary>
+    <ion-title>OnTrack</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to the OnTrack Calculator!</h2>
+  <p>
+    Please enter the time as: minutes : seconds . hundredths. <br/>
+    Result will be displayed as a percentage above or below a given ontrack time.
+  </p>
+  <form>
+    <input type = "radio" name = "gender" value = "Male"/>Male (Ages 15 - 22)<br/>
+    <input type = "radio" name = "gender" value = "Female"/>Female (Ages 13 - 21)<br/>    
+  </form>
+  <h3>Event: </h3>
+  <select>
+    <option value = "FiftyFree">50 Freestyle</option>
+    <option value = "OneFree">100 Freestyle</option>
+    <option value = "TwoFree">200 Freestyle</option>
+    <option value = "FourFree">400 Freestyle</option>
+    <option value = "EightFree">800 Freestyle</option>
+    <option value = "Mile">1500 Freestyle</option> 
+    <option value = "OneBack">100 Backstroke</option>
+    <option value = "TwoBack">200 Backstroke</option>
+    <option value = "OneFly">100 Butterfly</option>
+    <option value = "TwoFly">200 Butterfly</option>
+    <option value = "OneBreast">100 Breast</option>
+    <option value = "TwoBreast">200 Breast</option>
+    <option value = "TwoMedley">200 I.M.</option>
+    <option value = "FourMedley">400 I.M.</option> 
+  </select>
+  <br/>
+  <h4>Age: </h4>
+  <select>
+    <option value = "13">13</option>
+    <option value = "14">14</option>
+    <option value = "15">15</option>
+    <option value = "16">16</option> 
+    <option value = "17">17</option> 
+    <option value = "18">18</option> 
+    <option value = "19">19</option> 
+    <option value = "20">20</option> 
+    <option value = "21">21</option> 
+    <option value = "22">22</option> 
+
+  </select>
+  <h5>Time: </h5>
+  <form>
+    <input type = "text" name = "minutes" id = "min" maxlength="2" size = "3" value = ""/>
+    :
+    <input type = "text" name = "seconds" id = "sec" maxlength="2" size = "3" value = ""/>
+    .
+    <input type = "text" name = "hundredths" id = "hund" maxlength="2" size = "3" value = ""/>
+    <br/>
+    <input type = "submit" id = "calculate"/>
+  </form>
+</ion-content>
