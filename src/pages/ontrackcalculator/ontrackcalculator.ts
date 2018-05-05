@@ -9,16 +9,20 @@ import { MinLengthValidator } from '@angular/forms';
 
 export class OnTrackCalculator {
   constructor(public navCtrl: NavController) {
+  var Male = false 
+  var Female = false
+  var male
+  var female
   window.onload = function()
   {
+    male = document.getElementById("gender_male")
+    female = document.getElementById("gender_female")
+    female.addEventListener("click", (e:Event) => GenderSwap(Female))
+    male.addEventListener("click", (e:Event) => GenderSwap(Male))
     var submit = document.getElementById("calculate")
     submit.addEventListener("click", (e:Event) => DataRetrieval())
-    var genderRadio = document.getElementsByName("gender")
-    for (var i = 0; i <= genderRadio.length; i++)
-    {
-      genderRadio[i]
-    }  
   };
+    
     var age = 0
     var tempVar
     var FiftyFree = 0
@@ -34,11 +38,8 @@ export class OnTrackCalculator {
     var OneFly = 0
     var TwoFly = 0
     var TwoMedley = 0
-    var FourMedley = 0
-    var Male = false 
-    var Female = false
-    var trackOneTimes: number [] = [tempVar]
-    
+    var FourMedley = 0  
+    var trackOneTimes: number [] = [tempVar]   
     function AgeDetermination()
     {
       return age
@@ -52,7 +53,6 @@ export class OnTrackCalculator {
     {
       console.log("button was pressed")
       var total = 0
-      // var array: HTMLElement[] = [min, sec, hund]
       let min = document.getElementById("min") as HTMLInputElement
       let sec = document.getElementById("sec") as HTMLInputElement
       let hund = document.getElementById("hund") as HTMLInputElement
@@ -75,6 +75,24 @@ export class OnTrackCalculator {
       console.log(total)
       Calculate(total)  
     }
+    function GenderSwap(X)
+    {
+        if(X = Male)
+        {
+          Male = true
+          Female = false
+          console.log(Male, Female)
+        }
+        else if(X = Female)
+        {
+          Female = true
+          Male = false
+          console.log(Male, Female)
+        }
+        else{
+          console.log("Something went wrong. No gender selected")
+        }
+    }
     function Calculate(float)
     {
       
@@ -90,7 +108,7 @@ export class OnTrackCalculator {
     {
       if (this.Male != true || this.Female == true)
       {
-        console.log("This is the male section Something has gone wrong")
+        console.log("This is the male section Something has gone wrong... Not that I'm assuming your gender or anything. Just that you selected Female and you're in the male section... So something somwhere went horribly wrong");
         return;
       }
       if (this.Male == true && this.age == 15)
@@ -126,20 +144,20 @@ export class OnTrackCalculator {
         }
         else
         {
-          FiftyFree = 22.84;
-          OneFree = 49.17;
-          TwoFree = 107.15;
-          FourFree = 227.43;
-          EightFree = 474.31;
-          Mile = 917.75;
-          OneBack = 54.65;
-          TwoBack = 117.58;
-          OneBreast = 61.90;
-          TwoBreast = 131.26;
-          OneFly = 52.83;
-          TwoFly = 118.04;
-          TwoMedley = 121.00;
-          FourMedley = 257.88;
+          FiftyFree = 22.84
+          OneFree = 49.17
+          TwoFree = 107.15
+          FourFree = 227.43
+          EightFree = 474.31
+          Mile = 917.75
+          OneBack = 54.65
+          TwoBack = 117.58
+          OneBreast = 61.90
+          TwoBreast = 131.26
+          OneFly = 52.83
+          TwoFly = 118.04
+          TwoMedley = 121.00
+          FourMedley = 257.88
         }
       }
     }
