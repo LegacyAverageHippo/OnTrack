@@ -78,17 +78,20 @@ export class OnTrackCalculator {
       var comparableTimes: number []
       var comparableRaces: string []
       let race = document.getElementById("race") as HTMLInputElement
-      if (Male == true)
+      if (Male == true && Female == false)
       {
+        console.log("Male got here")
         comparableTimes = MaleTrackOneTimes()
         comparableRaces = MaleTrackOneEvents()  
       }
-      else
+      else if (Female == true && Male == false)
       {
+        console.log("got here")
         comparableTimes = FemaleTrackOneTimes()
         comparableRaces = FemaleTrackOneEvents()
       }
       console.log(race.value)
+      
       for(var i = 0; i < comparableTimes.length; i ++)
       {
         if (race.value == comparableRaces[i])
@@ -96,6 +99,7 @@ export class OnTrackCalculator {
           trackOne = comparableTimes[i]
           break;
         }
+        console.log("nope")
       }
       percentageOff = trackOne/timeIn * 100
       alert("The Athlete is currently " + percentageOff + "% on track!")
@@ -169,10 +173,11 @@ export class OnTrackCalculator {
       {
         trackOneNames = ["FiftyFree", "OneFree", "OneFly"]
       }
-      else if (Female == true && (age == 19 || age == 20))
+      else if (Female == true && (age == 20 || age == 21))
       {
         trackOneNames = ["FiftyFree"]
       }
+
       return trackOneNames
     }
     function FemaleTrackOneTimes()
@@ -293,16 +298,14 @@ export class OnTrackCalculator {
         OneFly = 58.15
         trackOneTimes = [FiftyFree, OneFree, OneFly]
       }
-      else if (age == 20 || age == 21)
+      else if (Female == true && age == 20)
       {
-        if (age == 20)
-        {
-          FiftyFree = 25.00
-        }
-        else
-        {
-          FiftyFree = 24.82
-        }
+        FiftyFree = 25.00
+        trackOneTimes = [FiftyFree]
+      }
+      else if (Female == true && age == 21)
+      {
+        FiftyFree = 24.82
         trackOneTimes = [FiftyFree]
       }
       return trackOneTimes
@@ -375,16 +378,15 @@ export class OnTrackCalculator {
         TwoBack = 125.27
         TwoBreast = 143.80
         FourMedley = 278.64
-        trackOneTimes = [TwoFree, FourFree, EightFree, Mile, TwoBack, TwoBreast, FourMedley]
-        return trackOneTimes    
+        return trackOneTimes = [TwoFree, FourFree, EightFree, Mile, TwoBack, TwoBreast, FourMedley]           
       }
-      else if (Male = true && age == 16)
+      else if (Male == true && age == 16)
       {                       
         OneFree = 51.72;
         TwoFree = 111.68;
         FourFree = 237.78;
         EightFree = 491.33;
-        Mile = 963.2;
+        Mile = 963.20;
         OneBack = 57.59;
         TwoBack = 122.84;
         TwoBreast = 139.78;
@@ -392,11 +394,11 @@ export class OnTrackCalculator {
         TwoFly = 125.10;
         TwoMedley = 126.77;
         FourMedley = 271.64;
-        trackOneTimes = [OneFree, TwoFree, FourFree, EightFree, Mile, OneBack,
+        return trackOneTimes = [OneFree, TwoFree, FourFree, EightFree, Mile, OneBack,
             TwoBack, TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley]
-        return trackOneTimes           
+                  
       }
-      else if (Male = true && age == 17)
+      else if (Male == true && age == 17)
       {
         OneFree = 50.74;
         TwoFree = 109.90;
@@ -411,63 +413,59 @@ export class OnTrackCalculator {
         TwoFly = 122.17;
         TwoMedley = 124.47;
         FourMedley = 265.91;
-        trackOneTimes = [OneFree, TwoFree, FourFree, EightFree, Mile, OneBack,
+        return trackOneTimes = [OneFree, TwoFree, FourFree, EightFree, Mile, OneBack,
           TwoBack, OneBreast, TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley]
       }
-      else if (Male == true && age == 18 || Male == true && age == 19)
+      else if (Male == true && age == 18)
       {
-        if (age == 18)
-        {
-          FiftyFree = 23.18
-          OneFree = 49.89
-          TwoFree = 108.40
-          FourFree = 230.20
-          EightFree = 478.31
-          Mile = 929.77
-          OneBack = 55.46
-          TwoBack = 119.01
-          OneBreast = 63.02
-          TwoBreast = 133.57
-          OneFly = 53.75
-          TwoFly = 119.84
-          TwoMedley = 122.56
-          FourMedley = 261.36
-          trackOneTimes = [FiftyFree, OneFree, TwoFree, FourFree, EightFree, Mile, OneBack, TwoBack, OneBreast,
-                            TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley]
-          return trackOneTimes
-        }
-        else
-        {
-          FiftyFree = 22.84
-          OneFree = 49.17
-          TwoFree = 107.15
-          FourFree = 227.43
-          EightFree = 474.31
-          Mile = 917.75
-          OneBack = 54.65
-          TwoBack = 117.58
-          OneBreast = 61.90
-          TwoBreast = 131.26
-          OneFly = 52.83
-          TwoFly = 118.04
-          TwoMedley = 121.00
-          FourMedley = 257.88
-          trackOneTimes = [FiftyFree, OneFree, TwoFree, FourFree, EightFree, Mile, OneBack, TwoBack, OneBreast,
-            TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley,]
-          return trackOneTimes
-        }
+        console.log("Hmmm?")
+        FiftyFree = 23.18
+        OneFree = 49.89
+        TwoFree = 108.40
+        FourFree = 230.20
+        EightFree = 478.31
+        Mile = 929.77
+        OneBack = 55.46
+        TwoBack = 119.01
+        OneBreast = 63.02
+        TwoBreast = 133.57
+        OneFly = 53.75
+        TwoFly = 119.84
+        TwoMedley = 122.56
+        FourMedley = 261.36
+        return trackOneTimes = [FiftyFree, OneFree, TwoFree, FourFree, EightFree, Mile, OneBack, TwoBack, OneBreast,
+                          TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley]  
+      }
+      else if (Male == true && age == 19)
+      {
+        FiftyFree = 22.84
+        OneFree = 49.17
+        TwoFree = 107.15
+        FourFree = 227.43
+        EightFree = 474.31
+        Mile = 917.75
+        OneBack = 54.65
+        TwoBack = 117.58
+        OneBreast = 61.90
+        TwoBreast = 131.26
+        OneFly = 52.83
+        TwoFly = 118.04
+        TwoMedley = 121.00
+        FourMedley = 257.88
+        return trackOneTimes = [FiftyFree, OneFree, TwoFree, FourFree, EightFree, Mile, OneBack, TwoBack, OneBreast,
+          TwoBreast, OneFly, TwoFly, TwoMedley, FourMedley,]
       }
       else if (Male == true && age == 20)
       {
           
-          FiftyFree = 22.55;
-          OneFree = 48.58;
-          OneBack = 53.99;
-          OneBreast = 60.98;
-          OneFly = 52.08;
-          TwoFly = 116.72;
-          TwoMedley = 119.77;
-          return trackOneTimes = [FiftyFree, OneFree, OneBack, OneBreast, OneFly, TwoFly, TwoMedley]
+        FiftyFree = 22.55;
+        OneFree = 48.58;
+        OneBack = 53.99;
+        OneBreast = 60.98;
+        OneFly = 52.08;
+        TwoFly = 116.72;
+        TwoMedley = 119.77;
+        return trackOneTimes = [FiftyFree, OneFree, OneBack, OneBreast, OneFly, TwoFly, TwoMedley]
       }
       else if (Male == true && age == 21)
       {
