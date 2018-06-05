@@ -78,6 +78,8 @@ export class OnTrackCalculator {
     function Calculate(timeIn)
     {
       var trackOne
+      var description
+      var secondsOff
       var percentageOff
       var comparableTimes: number []
       var comparableRaces: string []
@@ -106,7 +108,23 @@ export class OnTrackCalculator {
         console.log("nope")
       }
       percentageOff = trackOne/timeIn * 100
-      alert("The Athlete is currently " + percentageOff + "% on track!")
+      // alert("The Athlete is currently " + percentageOff + "% on track!")
+      // console.log("The Athlete is currently " + percentageOff + "% on track!")
+      if(trackOne > timeIn)
+      {
+        secondsOff = trackOne - timeIn
+        description = "seconds faster than the current OnTrack time! Great Work!"
+      }
+      else if(trackOne < timeIn)
+      {
+        secondsOff = timeIn - trackOne
+        description = "seconds off of the current OnTrack time! Keep working hard!"
+      }
+      else
+      {
+        description = "You are exactly on track! What are the chances?"
+      }
+      alert("The Athlete is currently " + secondsOff + description +" \n That is: " + percentageOff + "% on track!")
       console.log("The Athlete is currently " + percentageOff + "% on track!")
     }
     function GenderSwap(X)
