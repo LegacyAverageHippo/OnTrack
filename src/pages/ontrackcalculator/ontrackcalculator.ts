@@ -51,9 +51,13 @@ export class OnTrackCalculator {
       console.log(min.value)
       var minutes = parseFloat(min.value.toString())
       console.log(minutes)
-      if (minutes == null)
+      if (min.value == "")
       {
         minutes = 0
+      }
+      if (sec.value == "" || hund.value == "")
+      {
+        alert("error: please enter a valid integer in the seconds and hundredths fields!")
       }
       var seconds = parseFloat(sec.value.toString())      
       console.log(seconds)   
