@@ -11,10 +11,10 @@ export class ContactPage {
     var min = document.getElementById("min") as HTMLInputElement
     var sec = document.getElementById("sec") as HTMLInputElement
     var hund = document.getElementById("hund") as HTMLInputElement
+    let event = document.getElementById("race") as HTMLInputElement
     console.log(name, min.value, sec.value, hund.value)
-    var minutes = parseFloat(min.value.toString())
-    var seconds = parseFloat(sec.value.toString())
-    var hundredths = parseFloat(hund.value.toString())
+    var total = min.value.concat(":", sec.value, ".", hund.value );
+    console.log(total);
 }
 
 }
