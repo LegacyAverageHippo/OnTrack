@@ -4,10 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { IMChallenge } from '../pages/IMChallenge/IMChallenge';
 import { OnTrackCalculator } from '../pages/ontrackcalculator/ontrackcalculator';
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -15,7 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    IMChallenge,
     OnTrackCalculator,
     TabsPage
   ],
@@ -27,7 +26,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    IMChallenge,
     OnTrackCalculator,
     TabsPage
   ],

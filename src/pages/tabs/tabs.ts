@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { IMChallenge } from '../IMChallenge/IMChallenge';
 import { OnTrackCalculator } from '../ontrackcalculator/ontrackcalculator';
 
 @Component({
@@ -10,8 +10,8 @@ import { OnTrackCalculator } from '../ontrackcalculator/ontrackcalculator';
 export class TabsPage {
 
   tab1Root = OnTrackCalculator;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = IMChallenge;
+  tab3Root = AboutPage;
 
   constructor() {
 

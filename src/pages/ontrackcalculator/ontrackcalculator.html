@@ -11,8 +11,8 @@
     Result will be displayed as a percentage above or below a given ontrack time.
   </p>
   <form>
-    <input type = "radio" name = "gender" value = "Male" id = "gender_male"/>Male (Ages 15 - 22)<br/>
-    <input type = "radio" name = "gender" value = "Female" id = "gender_female"/>Female (Ages 13 - 21)<br/>    
+    <input type = "radio" name = "gender" value = "Male" id = "gender_male"/>Male<br/>
+    <input type = "radio" name = "gender" value = "Female" id = "gender_female"/>Female<br/>    
   </form>
   <h3>Event: </h3>
   <select id = "race">
@@ -34,6 +34,9 @@
   <br/>
   <h4>Age: </h4>
   <select id = "Age">
+    <option value = "10under">10 and Under</option>
+    <option value = "11">11</option>
+    <option value = "12">12</option>
     <option value = "13">13</option>
     <option value = "14">14</option>
     <option value = "15">15</option>
@@ -45,6 +48,16 @@
     <option value = "21">21</option> 
     <option value = "22">22</option> 
 
+  </select><br/>
+  <h2>Standard</h2>
+  <select id = "standard">
+    <option value = "a">A</option>
+    <option value = "aa">AA</option>
+    <option value = "westerns">Westerns</option>
+    <option value = "CJC">CJC</option>
+    <option value = "CSC">CSC</option>
+    <option value = "Trials">Trials</option>
+    <option value = "OnTrack">OnTrack</option> 
   </select>
   <h5>Time: </h5>
   <form>

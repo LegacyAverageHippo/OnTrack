@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-IMChallenge',
+  templateUrl: 'IMChallenge.html'
 })
-export class ContactPage {
+export class IMChallenge {
   constructor(public navCtrl: NavController) {
     var name = document.getElementById("name") as HTMLInputElement      
     var min = document.getElementById("min") as HTMLInputElement
