@@ -23,31 +23,34 @@ export class IMChallenge {
       var age = document.getElementById("age") as HTMLInputElement   
       var event = document.getElementById("event") as HTMLInputElement
       var gender = document.getElementById("gender") as HTMLInputElement
+      var total = min.value + ":" + sec.value + "." + hund.value
       console.log(min.value)
       console.log(sec.value)
       console.log(hund.value)
+      console.log(total)
       console.log(name.value)
       console.log(event.value)
       console.log(age.value)
-      PostRequest(min.value, sec.value, hund.value, name.value, event.value, gender.value, age.value)
+      PostRequest(total, name.value, event.value, gender.value, age.value)
     }
-    function PostRequest(min, sec, hund, name, race, gender, age)
+    function PostRequest(total, name, race, gender, age)
     {
+      
       var headers = new Headers()
       headers.append("Accept", 'application/json')
-      //headers.append('Content-Type', 'application/json')
+      headers.append('Content-Type', 'application/json')
       let options = new RequestOptions({headers: headers })
       let postParams = {
         name: name,
-        min: min,
-        sec: sec,
-        hund: hund,
-        race: race,
+        age: age,
         gender: gender,
-        age: age
+        race: race, 
+        total: total
       }
+      console.log(name, age, gender, race, total)
       http.post("http://localhost/goldfins.php", postParams, options)
-      .subscribe(data=> {console.log(data);}, 
+      .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      + "'s " + "time has successfully been entered")}, 
       error =>{console.log(error, 'problem');});
     }
     
