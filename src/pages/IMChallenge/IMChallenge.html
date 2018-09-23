@@ -5,11 +5,11 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding>
-  <div>
-    <form action = "Goldfins-env.wgt9jiuqsc.us-east-2.elasticbeanstalk.com">
+    <form>
       <h2>Name: </h2><br/>
-      <input type = "text" id = "name" value = "name"> <br/>
+      <input type = "text" id = "name"> <br/>
       <h2>Age Group: </h2>
       <select id = "age"> <br/>
         <option value = "tendown">10 and under</option>
@@ -23,21 +23,21 @@
         <option value = "male">Male</option>
       </select>
       <h1>Race: </h1><br/>
-      <select id = "race">
-          <option value = "FiftyFree">50 Freestyle</option>
-          <option value = "OneFree">100 Freestyle</option>
-          <option value = "TwoFree">200 Freestyle</option>
-          <option value = "FourFree">400 Freestyle</option>
-          <option value = "EightFree">800 Freestyle</option>
-          <option value = "Mile">1500 Freestyle</option> 
-          <option value = "OneBack">100 Backstroke</option>
-          <option value = "TwoBack">200 Backstroke</option>
-          <option value = "OneFly">100 Butterfly</option>
-          <option value = "TwoFly">200 Butterfly</option>
-          <option value = "OneBreast">100 Breast</option>
-          <option value = "TwoBreast">200 Breast</option>
-          <option value = "TwoMedley">200 I.M.</option>
-          <option value = "FourMedley">400 I.M.</option> 
+      <select id = "event">
+          <option value = "fiftyfr">50 Freestyle</option>
+          <option value = "onefree">100 Freestyle</option>
+          <option value = "twofree">200 Freestyle</option>
+          <option value = "fourfree">400 Freestyle</option>
+          <option value = "eightfree">800 Freestyle</option>
+          <option value = "mile">1500 Freestyle</option> 
+          <option value = "oneback">100 Backstroke</option>
+          <option value = "twoback">200 Backstroke</option>
+          <option value = "onefly">100 Butterfly</option>
+          <option value = "twofly">200 Butterfly</option>
+          <option value = "onebreast">100 Breast</option>
+          <option value = "twobreast">200 Breast</option>
+          <option value = "twomedley">200 I.M.</option>
+          <option value = "fourmedley">400 I.M.</option> 
       </select>
       <h3>Time: </h3><br/>
       <input type = "text" name = "minutes" id = "minutes" maxlength="2" size = "3" value = ""/>
@@ -46,8 +46,7 @@
       .
       <input type = "text" name = "hundredths" id = "hundredths" maxlength="2" size = "3" value = ""/>
       <br/>
-      <input type = "submit" id = "submit"/>  
+      <input type = "submit" id = "post"/>  
     </form>
-  </div>
 </ion-content>
 
