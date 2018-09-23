@@ -35,8 +35,7 @@ export class IMChallenge {
     {
       var headers = new Headers()
       headers.append("Accept", 'application/json')
-      headers.append('Content-Type', 'application/json')
-      headers.append('Access-Control-Allow-Origin', 'application/json')
+      //headers.append('Content-Type', 'application/json')
       let options = new RequestOptions({headers: headers })
       let postParams = {
         name: name,
@@ -47,7 +46,7 @@ export class IMChallenge {
         gender: gender,
         age: age
       }
-      http.post("http://10.230.69.162/goldfins.php", postParams, options)
+      http.post("http://localhost/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data);}, 
       error =>{console.log(error, 'problem');});
     }
