@@ -48,7 +48,7 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://localhost/goldfins.php", postParams, options)
+      http.post("http://172.16.1.78/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
       error =>{console.log(error, 'problem');});
