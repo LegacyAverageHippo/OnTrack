@@ -21,6 +21,7 @@ export class IMChallenge {
       var age = document.getElementById("age") as HTMLInputElement   
       var event = document.getElementById("event") as HTMLInputElement
       var gender = document.getElementById("gender") as HTMLInputElement
+      var pool = document.getElementById("pool") as HTMLInputElement
       if (min == null)
       {
         var total = sec.value + "." + hund.value
@@ -29,9 +30,9 @@ export class IMChallenge {
       {
         var total = min.value + ":" + sec.value + "." + hund.value
       }
-      PostRequest(total, name.value, event.value, gender.value, age.value)
+      PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
-    function PostRequest(total, name, race, gender, age)
+    function PostRequest(total, name, race, gender, age, pool)
     {
       
       var headers = new Headers()
@@ -42,11 +43,12 @@ export class IMChallenge {
         name: name,
         age: age,
         gender: gender,
-        race: race, 
+        race: race,
+        pool: pool, 
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://172.16.1.78/goldfins.php", postParams, options)
+      http.post("http://192.168.0.139/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
       error =>{console.log(error, 'problem');});
