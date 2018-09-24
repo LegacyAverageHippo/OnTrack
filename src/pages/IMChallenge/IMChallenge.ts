@@ -11,11 +11,9 @@ export class IMChallenge {
       setTimeout(function(){
       var enter = document.getElementById("post")
       enter.addEventListener("click", (e:Event) => Post())
-      }, delayTime)
-       
+      }, delayTime)   
     function Post() : any
     {
-      console.log("button was pressed")
       var min = document.getElementById("minutes") as HTMLInputElement
       var sec = document.getElementById("seconds") as HTMLInputElement
       var hund = document.getElementById("hundredths") as HTMLInputElement
@@ -24,13 +22,6 @@ export class IMChallenge {
       var event = document.getElementById("event") as HTMLInputElement
       var gender = document.getElementById("gender") as HTMLInputElement
       var total = min.value + ":" + sec.value + "." + hund.value
-      console.log(min.value)
-      console.log(sec.value)
-      console.log(hund.value)
-      console.log(total)
-      console.log(name.value)
-      console.log(event.value)
-      console.log(age.value)
       PostRequest(total, name.value, event.value, gender.value, age.value)
     }
     function PostRequest(total, name, race, gender, age)
