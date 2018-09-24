@@ -21,7 +21,14 @@ export class IMChallenge {
       var age = document.getElementById("age") as HTMLInputElement   
       var event = document.getElementById("event") as HTMLInputElement
       var gender = document.getElementById("gender") as HTMLInputElement
-      var total = min.value + ":" + sec.value + "." + hund.value
+      if (min == null)
+      {
+        var total = sec.value + "." + hund.value
+      }
+      else
+      {
+        var total = min.value + ":" + sec.value + "." + hund.value
+      }
       PostRequest(total, name.value, event.value, gender.value, age.value)
     }
     function PostRequest(total, name, race, gender, age)
