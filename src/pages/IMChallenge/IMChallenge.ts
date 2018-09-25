@@ -22,13 +22,18 @@ export class IMChallenge {
       var event = document.getElementById("event") as HTMLInputElement
       var gender = document.getElementById("gender") as HTMLInputElement
       var pool = document.getElementById("pool") as HTMLInputElement
-      if (min == null)
+      var total
+      if (sec.value == 'NT')
       {
-        var total = sec.value + "." + hund.value
+        total = 'NT'
+      }
+      else if (min.value == null)
+      {
+        total = sec.value + "." + hund.value
       }
       else
       {
-        var total = min.value + ":" + sec.value + "." + hund.value
+        total = min.value + ":" + sec.value + "." + hund.value
       }
       PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
@@ -36,7 +41,7 @@ export class IMChallenge {
     {
       
       var headers = new Headers()
-      headers.append("Accept", 'application/json')
+      headers.append('Accept', 'application/json')
       headers.append('Content-Type', 'application/json')
       let options = new RequestOptions({headers: headers })
       let postParams = {
