@@ -38,8 +38,7 @@ export class IMChallenge {
       PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
     function PostRequest(total, name, race, gender, age, pool)
-    {
-      
+    { 
       var headers = new Headers()
       headers.append('Accept', 'application/json')
       headers.append('Content-Type', 'application/json')
@@ -53,7 +52,7 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://192.168.0.139/goldfins.php", postParams, options)
+      http.post("http://10.196.81.55/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
       error =>{console.log(error, 'problem');});
