@@ -55,7 +55,7 @@ export class IMChallenge {
       http.post("http://10.196.81.55/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');});
+      error =>{console.log(error, 'problem');alert('problem')});
     }
     
   }
