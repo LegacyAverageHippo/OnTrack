@@ -52,11 +52,11 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://10.196.81.55/goldfins.php", postParams, options)
+      http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
       error =>{console.log(error, 'problem');alert('problem')});
-    }
+    } 
     
   }
 }
