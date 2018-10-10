@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http, Headers, RequestOptions  } from '@angular/http'; 
+import { Http, Headers, RequestOptions  } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { map } from '../../../node_modules/rxjs/operator/map';
 @Component({
   selector: 'page-IMChallenge',
   templateUrl: 'IMChallenge.html'
 })
+/**
+ * takes in httpinput as parameters (name, gender, age, type of pool, event, time)
+ * encodes input elements as JSON objects, POSTS them to AWS PHP server. 
+ * returns: Elements of the list being entered into. 
+ */
 export class IMChallenge {
+  posts: any;
   constructor(public navCtrl: NavController, public http : Http) {
       var delayTime = 500;
       setTimeout(function(){
@@ -36,7 +44,25 @@ export class IMChallenge {
         total = min.value + ":" + sec.value + "." + hund.value
       }
       PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
+      //GetRequest()
     }
+    // function GetRequest()
+    // {
+
+    //   http.get('http://localhost/goldfins.php').subscribe((res) => console.log())
+    //   // const req = new HttpRequest('GET', 'http://localhost/goldfins.php', file, {
+    //   //   reportProgress: true
+    //   // });
+    //   // http.request('http://localhost/goldfins.php').pipe(
+    //   //   console.log("GOES IN HERE!")
+
+    //   // );
+      
+    //   // http.get("http://localhost/goldfins.php").map(res=>res.json()).subscribe(res=>{
+    //   //   // this.posts = data.data.children;
+    //   // alert(res.json);console.log(this.posts) });
+    //   //   // map(res=>res.json()).
+    // }
     function PostRequest(total, name, race, gender, age, pool)
     { 
       var headers = new Headers()
@@ -51,12 +77,15 @@ export class IMChallenge {
         pool: pool, 
         total: total
       }
-      console.log(name, age, gender, race, total)
+      // console.log(name, age, gender, race, total)
+      // http.post("http://localhost/goldfins.php", postParams, options)
+      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      // + "'s " + "time has successfully been entered")}, 
+      // error =>{console.log(error, 'problem');alert('problem')});
       http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');alert('problem')});
+      error =>{console.log(error, 'problem');alert('problem')}); 
     } 
-    
   }
 }
