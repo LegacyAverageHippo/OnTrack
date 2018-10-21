@@ -31,19 +31,20 @@ export class IMChallenge {
       var gender = document.getElementById("gender") as HTMLInputElement
       var pool = document.getElementById("pool") as HTMLInputElement
       var total
+      var fullString
       if (sec.value == 'NT')
       {
-        total = 'NT'
+        fullString = 'NT'
       }
-      else if (min.value == null)
+      else if (min.value == "")
       {
-        total = sec.value + "." + hund.value
+        fullString = sec.value + "." + hund.value
       }
       else
       {
-        total = min.value + ":" + sec.value + "." + hund.value
+        fullString = min.value + ":" + sec.value + "." + hund.value
       }
-      PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
+      PostRequest(fullString, name.value, event.value, gender.value, age.value, pool.value)
       //GetRequest()
     }
     // function GetRequest()
@@ -63,7 +64,7 @@ export class IMChallenge {
     //   // alert(res.json);console.log(this.posts) });
     //   //   // map(res=>res.json()).
     // }
-    function PostRequest(total, name, race, gender, age, pool)
+    function PostRequest(fullString, name, race, gender, age, pool)
     { 
       var headers = new Headers()
       headers.append('Accept', 'application/json')
@@ -75,9 +76,9 @@ export class IMChallenge {
         gender: gender,
         race: race,
         pool: pool, 
-        total: total
+        fullString: fullString
       }
-      // console.log(name, age, gender, race, total)
+      console.log(name, age, gender, race, fullString)
       // http.post("http://localhost/goldfins.php", postParams, options)
       // .subscribe(data=> {console.log(data); alert("Thank you " + name 
       // + "'s " + "time has successfully been entered")}, 

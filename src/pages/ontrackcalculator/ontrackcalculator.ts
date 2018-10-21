@@ -99,6 +99,7 @@ export class OnTrackCalculator {
       }
       minutes = minutes * 60
       hundredths = hundredths / 100
+      console.log(hundredths)
       total = minutes + seconds + hundredths
       console.log(total)
       Calculate(total, standard)  
@@ -139,18 +140,20 @@ export class OnTrackCalculator {
       if(trackOne > timeIn)
       {
         secondsOff = trackOne - timeIn
+        console.log (secondsOff, trackOne, timeIn)
         description = " seconds faster than the current " + standard.value +" time! Great Work!"
       }
      else if(trackOne < timeIn)
       {
         secondsOff = timeIn - trackOne
+        console.log (secondsOff, trackOne, timeIn)
         description = " seconds off of the current "+ standard.value +" time! Keep working hard!"
       }
      else
-      {
-        description = "You are exactly the same time! What are the chances?"
-      }
-      alert("The Athlete is currently " + secondsOff + description +" \nThat is: " + percentageOff + "%!")
+     {
+       description = "You are exactly the same time! What are the chances?"
+     }
+      alert("The Athlete is currently " + secondsOff.toFixed(2) + description +" \nThat is: " + percentageOff.toFixed(2) + "%!")
       console.log("The Athlete is currently " + percentageOff + "%!")
     }
     function GenderSwap(X)

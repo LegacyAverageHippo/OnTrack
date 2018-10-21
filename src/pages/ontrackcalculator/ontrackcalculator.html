@@ -5,9 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to the OnTrack Calculator!</h2>
   <p>   
-    Please enter the time as: minutes : seconds . hundredths. <br/>
+    Enter the time as minutes : seconds . hundredths. <br/>
     Result will be displayed as a percentage above or below a given ontrack time.
   </p>
   <form>
@@ -40,6 +39,14 @@
   </select>
   <br/>
   <h4>Age: </h4>
+  <!-- <ion-list>
+    <ion-item style = "width: 50%; height: 50%">
+      <ion-range id = "Age" min = "10" max = "22" color = primary pin = "true">
+        <ion-icon small range-left name = "md-person"></ion-icon>
+        <ion-icon range-right name = "md-person"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list> -->
   <select id = "Age">
     <option value = "10">10 and Under</option>
     <option value = "11">11</option>
@@ -55,11 +62,12 @@
     <option value = "21">21</option> 
     <option value = "22">22</option> 
   </select><br/>
-  <h2>Standard</h2>
+  <h2>Standard:</h2>
   <select id = "standard">
+    <h2>Standard:</h2>
     <option value = "A">A</option>
     <option value = "AA">AA</option>
-    <option value = "westerns">Westerns</option>
+    <option value = "Westerns">Westerns</option>
     <option value = "CJC">CJC</option>
     <option value = "CSC">CSC</option>
     <option value = "Trials">Trials</option>
