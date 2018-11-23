@@ -8,14 +8,17 @@ import { map } from '../../../node_modules/rxjs/operator/map';
   templateUrl: 'IMChallenge.html'
 })
 /**
- * takes in httpinput as parameters (name, gender, age, type of pool, event, time)
- * encodes input elements as JSON objects, POSTS them to AWS PHP server. 
+ * takes in HMTLinput as parameters (name, gender, age, type of pool, event, time)
+ * encodes input elements as HTTP/JSON objects, POSTS them to AWS PHP server. 
  * returns: Elements of the list being entered into. 
  */
 export class IMChallenge {
   posts: any;
   constructor(public navCtrl: NavController, public http : Http) {
       var delayTime = 500;
+      var minutes
+      var seconds
+      var hundredths
       setTimeout(function(){
       var enter = document.getElementById("post")
       enter.addEventListener("click", (e:Event) => Post())
@@ -34,37 +37,16 @@ export class IMChallenge {
       var fullString
       if (sec.value == 'NT')
       {
-        fullString = 'NT'
+        total = 0
       }
-      else if (min.value == "")
-      {
-        fullString = sec.value + "." + hund.value
-      }
-      else
-      {
-        fullString = min.value + ":" + sec.value + "." + hund.value
-      }
-      PostRequest(fullString, name.value, event.value, gender.value, age.value, pool.value)
-      //GetRequest()
+      minutes = parseFloat(min.value) * 60
+      seconds = parseFloat(sec.value)
+      hundredths = parseFloat(hund.value)/100
+      total = minutes + seconds + hundredths
+      console.log(total)
+      PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
-    // function GetRequest()
-    // {
-
-    //   http.get('http://localhost/goldfins.php').subscribe((res) => console.log())
-    //   // const req = new HttpRequest('GET', 'http://localhost/goldfins.php', file, {
-    //   //   reportProgress: true
-    //   // });
-    //   // http.request('http://localhost/goldfins.php').pipe(
-    //   //   console.log("GOES IN HERE!")
-
-    //   // );
-      
-    //   // http.get("http://localhost/goldfins.php").map(res=>res.json()).subscribe(res=>{
-    //   //   // this.posts = data.data.children;
-    //   // alert(res.json);console.log(this.posts) });
-    //   //   // map(res=>res.json()).
-    // }
-    function PostRequest(fullString, name, race, gender, age, pool)
+    function PostRequest(total, name, race, gender, age, pool)
     { 
       var headers = new Headers()
       headers.append('Accept', 'application/json')
@@ -76,17 +58,17 @@ export class IMChallenge {
         gender: gender,
         race: race,
         pool: pool, 
-        fullString: fullString
+        total: total
       }
-      console.log(name, age, gender, race, fullString)
-      // http.post("http://localhost/goldfins.php", postParams, options)
-      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
-      // + "'s " + "time has successfully been entered")}, 
-      // error =>{console.log(error, 'problem');alert('problem')});
-      http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      console.log(name, age, gender, race, total)
+      http.post("http://localhost/goldfins.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');alert('problem')}); 
+      error =>{console.log(error, 'problem');alert('problem')});
+      // http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      // + "'s " + "time has successfully been entered")}, 
+      // error =>{console.log(error, 'problem');alert('problem')}); 
     } 
   }
 }
