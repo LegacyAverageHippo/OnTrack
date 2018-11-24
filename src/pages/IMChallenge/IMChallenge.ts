@@ -37,13 +37,16 @@ export class IMChallenge {
       var fullString
       if (sec.value == 'NT')
       {
-        total = 0
+        console.log("hello");
+        total = 3600
       }
+      else{
       minutes = parseFloat(min.value) * 60
       seconds = parseFloat(sec.value)
       hundredths = parseFloat(hund.value)/100
       total = minutes + seconds + hundredths
       console.log(total)
+      }
       PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
     function PostRequest(total, name, race, gender, age, pool)
