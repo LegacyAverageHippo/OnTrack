@@ -41,11 +41,18 @@ export class IMChallenge {
         total = 3600
       }
       else{
-      minutes = parseFloat(min.value) * 60
-      seconds = parseFloat(sec.value)
-      hundredths = parseFloat(hund.value)/100
-      total = minutes + seconds + hundredths
-      console.log(total)
+        if (min.value == ""){
+          minutes = 0
+          console.log(minutes)
+        }
+        else{
+          minutes = parseFloat(min.value) * 60
+          console.log(minutes)
+        }
+          seconds = parseFloat(sec.value)
+          hundredths = parseFloat(hund.value)/100
+          total = minutes + seconds + hundredths
+          console.log(total)
       }
       PostRequest(total, name.value, event.value, gender.value, age.value, pool.value)
     }
@@ -64,14 +71,18 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://localhost/goldfins.php", postParams, options)
-      .subscribe(data=> {console.log(data); alert("Thank you " + name 
-      + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');alert('problem')});
-      // http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      // http.post("http://localhost/goldfins.php", postParams, options)
       // .subscribe(data=> {console.log(data); alert("Thank you " + name 
       // + "'s " + "time has successfully been entered")}, 
-      // error =>{console.log(error, 'problem');alert('problem')}); 
+      // error =>{console.log(error, 'problem');alert('problem')});
+      // http.get("http://localhost/goldfins.php").map(res => res.json()).subscribe(data => {
+      //   this.posts = data; console.log(data)});
+      http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      + "'s " + "time has successfully been entered")}, 
+      error =>{console.log(error, 'problem');alert('problem')}); 
+      //this.http.get("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php").map(res => res.json()).subscribe(data => {
+        //this.posts = data.data.children;});
     } 
   }
 }
