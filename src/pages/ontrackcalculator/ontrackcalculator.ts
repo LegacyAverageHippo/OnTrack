@@ -153,6 +153,7 @@ export class OnTrackCalculator {
      {
        description = "You are exactly the same time! What are the chances?"
      }
+     //error here... not sure why... will have to check out later
       alert("The Athlete is currently " + secondsOff.toFixed(2) + description +" \nThat is: " + percentageOff.toFixed(2) + "%!")
       console.log("The Athlete is currently " + percentageOff + "%!")
     }
@@ -326,6 +327,7 @@ export class OnTrackCalculator {
         }
         else if (standard.value == "AA" && course.value == "SCM")
         {
+          alert("hello")
            Times = [FiftyFree = 31.21, OneFree = 68.66, TwoFree = 149.30, FourFree = 314.89,
           EightFree = 653.43, Mile = 782.97, FiftyBack = 36.04, OneBack = 76.75, TwoBack = 165.47, 
           FiftyBreast = 40.27, OneBreast = 87.08, TwoBreast = 188.51, FiftyFly = 34.27, OneFly = 76.38,

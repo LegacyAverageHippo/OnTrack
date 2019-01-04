@@ -71,16 +71,16 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      // http.post("http://localhost/goldfins.php", postParams, options)
-      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
-      // + "'s " + "time has successfully been entered")}, 
-      // error =>{console.log(error, 'problem');alert('problem')});
-      // http.get("http://localhost/goldfins.php").map(res => res.json()).subscribe(data => {
-      //   this.posts = data; console.log(data)});
-      http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      http.post("http://192.168.0.153/goldfin.php", postParams, options)
       .subscribe(data=> {console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');alert('problem')}); 
+      error =>{console.log(error, 'problem');alert('problem')});
+      // http.get("http://localhost/goldfins.php").map(res => res.json()).subscribe(data => {
+      //   this.posts = data; console.log(data)});
+      // http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
+      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      // + "'s " + "time has successfully been entered")}, 
+      // error =>{console.log(error, 'problem');alert('problem')}); 
       //this.http.get("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php").map(res => res.json()).subscribe(data => {
         //this.posts = data.data.children;});
     } 
