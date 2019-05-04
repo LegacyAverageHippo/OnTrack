@@ -71,18 +71,21 @@ export class IMChallenge {
         total: total
       }
       console.log(name, age, gender, race, total)
-      http.post("http://192.168.0.153/goldfin.php", postParams, options)
-      .subscribe(data=> {console.log(data); alert("Thank you " + name 
+      http.post("http://localhost/goldfin.php", postParams, options)
+      .subscribe(data=> {
+        console.log(data); alert("Thank you " + name 
       + "'s " + "time has successfully been entered")}, 
-      error =>{console.log(error, 'problem');alert('problem')});
-      // http.get("http://localhost/goldfins.php").map(res => res.json()).subscribe(data => {
-      //   this.posts = data; console.log(data)});
-      // http.post("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php", postParams, options)
-      // .subscribe(data=> {console.log(data); alert("Thank you " + name 
-      // + "'s " + "time has successfully been entered")}, 
-      // error =>{console.log(error, 'problem');alert('problem')}); 
-      //this.http.get("http://GoldfinsServer.qafrcjxsmx.us-east-2.elasticbeanstalk.com/goldfins.php").map(res => res.json()).subscribe(data => {
-        //this.posts = data.data.children;});
+      error =>{console.log(error, 'problem');alert('problem')}); 
+      var obj = {"table" : "fifteengirlimprovementsc", "name" : name};
+      var xmlHTTPResponse = new XMLHttpRequest();
+      xmlHTTPResponse.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+          var myObj = JSON.parse(this.responseText);
+          console.log(myObj);
+        }
+      };
+      xmlHTTPResponse.open("GET", "goldfin.php", true);
+      xmlHTTPResponse.send(); 
     } 
   }
 }

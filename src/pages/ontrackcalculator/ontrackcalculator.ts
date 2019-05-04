@@ -62,7 +62,7 @@ export class OnTrackCalculator {
        standard: Specific group of time standards the entry time is to be compared to.
        */
    function DataRetrieval() : any
-    {
+   {
       console.log("button was pressed")
       var total = 0
       let min = document.getElementById("min") as HTMLInputElement
@@ -104,6 +104,7 @@ export class OnTrackCalculator {
       console.log(total)
       Calculate(total, standard)  
     }
+/*takes in the time */
  function Calculate(timeIn, standard)
  {
    var trackOne
@@ -153,7 +154,6 @@ export class OnTrackCalculator {
      {
        description = "You are exactly the same time! What are the chances?"
      }
-     //error here... not sure why... will have to check out later
       alert("The Athlete is currently " + secondsOff.toFixed(2) + description +" \nThat is: " + percentageOff.toFixed(2) + "%!")
       console.log("The Athlete is currently " + percentageOff + "%!")
     }
